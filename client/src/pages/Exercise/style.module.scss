@@ -1,0 +1,86 @@
+@use '../../styles/global.scss' as *;
+
+.exercise {
+  @extend .backGrad;
+  @extend .flexCenter;
+  position: relative;
+  gap: 2rem;
+  min-height: 100vh;
+  padding: 3rem 0.5rem;
+  color: $color-text;
+
+  img {
+    width: 50px;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+  }
+
+  .exerciseBox {
+    @extend .boxShadow;
+    width: 700px;
+    background: #fff;
+    min-height: 700px;
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+
+    h2 {
+      font-weight: 400;
+      margin: 1rem 0;
+    }
+
+    h6 {
+      font-size: 1.1rem;
+      line-height: 1.5rem;
+      font-weight: 400;
+      color: $color-text;
+      border: 1px solid $color-text;
+      padding: 1.5rem;
+    }
+
+    span {
+      color: #000;
+      font-weight: 700;
+    }
+
+    .difficulty {
+      svg {
+        color: $color-lightGrey;
+        margin-right: 5px;
+      }
+
+      .is {
+        color: $color-darkOrange;
+      }
+    }
+    button {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+    }
+  }
+  .sul {
+    .oneSul {
+      background-color: $color-lightGrey;
+      padding: 1rem;
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (max-width: $isMobile) {
+  .exerciseBox {
+    width: 100%;
+  }
+  .sul {
+    width: 100%;
+
+    .exerciseBox {
+      width: 100%;
+    }
+  }
+}

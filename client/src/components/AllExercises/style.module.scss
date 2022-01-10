@@ -1,0 +1,55 @@
+@use '../../styles/global.scss' as *;
+
+.wrapper {
+  padding: 2rem;
+
+  .langTitle {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2rem;
+    color: $color-text;
+  }
+
+  .langCards {
+    @extend .flexCenter;
+    gap: 2rem;
+  }
+
+  .langBtns {
+    @extend .flexCenter;
+    min-height: 100px;
+
+    gap: 0.2rem;
+    border-radius: 5px;
+
+    button {
+      color: #bbbbbb;
+      border: 1px solid #bbbbbb;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .selected {
+      border: 1px solid $color-purple;
+      background: $color-purple;
+      color: #fff;
+      transform: scale(1.2);
+    }
+  }
+
+  .allExercises {
+    @extend .flexCenter;
+
+    gap: 2rem;
+    width: 100%;
+    padding: 2rem;
+    position: relative;
+  }
+}
+
+@media (max-width: $isMobile) {
+  .wrapper {
+    .langBtns {
+      display: none;
+    }
+  }
+}

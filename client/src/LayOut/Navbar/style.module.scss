@@ -1,0 +1,17 @@
+@use '../../styles/global.scss' as *;
+
+.navbar {
+  @extend .flexCenter;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  ul {
+    @extend .flexCenter;
+    gap: 1.5rem;
+  }
+
+  height: 70px;
+}

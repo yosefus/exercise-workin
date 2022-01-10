@@ -1,0 +1,222 @@
+###
+GET http://localhost:3200/api/exercise/all HTTP/1.1
+
+
+###
+GET http://localhost:3200/api/exercise/61d739121a144118883cbb36 HTTP/1.1
+
+###
+GET http://localhost:3200/api/exercise/bylang/61d808d9e1d54f8ae11b1c44 HTTP/1.1
+
+
+###
+PUT http://localhost:3200/api/exercise/61d739121a144118883cbb36 HTTP/1.1
+content-type: application/json
+
+{
+  "title": "the first one",
+  "description": "some description one"
+}
+
+###
+DELETE  http://localhost:3200/api/exercise/:id HTTP/1.1
+
+
+###
+POST http://localhost:3200/api/exercise HTTP/1.1
+content-type: application/json
+
+{
+ 
+  "title": "התרגיל השני שלי",
+  "description": "תיאור מפורט מאוד מה התרגיל המוזר הזה עושה",
+  "creator": "61d72ef6c5a70c65e23d3c34",
+  "type": "tutorial",
+  "difficulty": "hard",
+  "labels": ["js", "array", "loop", "object", "map", "function"],
+  "programingLanguage": "61d808d9e1d54f8ae11b1c44",
+  "content": {"simple": "the first one" },
+  "status": "publish"
+}
+
+###
+POST http://localhost:3200/api/exercise/all HTTP/1.1
+content-type: application/json
+
+[
+ 
+  {
+    "programingLanguage": "61d808d9e1d54f8ae11b1c44",
+    "creator": "61d72ef6c5a70c65e23d3c34",
+    "labels": ["array", "object"],
+    "content": {
+      "simple": "התיכון אביב ומרכזי את הבורסה התיאטרון בערים התיכון תל על, מדרום הלאומי וחולון המוכרת תרבות חברה היא התזמורת היא רמת. אביב הלבנה תל מערכות על בת ומצפון הבנקאית יפו כתל, תקווה תל בה הגדולים המהווה בו התרבות במישור המערכת המדינה. בישראל תל בישראל איילון לניירות פורום הפילהרמונית בני בינלאומיות אביב, והשנייה אביב ישראל אביב המרכזית הים לחוף יפו דן גובלת. הירקון אדמת העיתונים בערים הדרומי של ישראל מרכז בתל ונחל, העיר בישראל הכלכלה בית תל תל אביב מבין רמת של. הוכרז שגרירויות תלאביב התקשורת השרון ערך גן העצמאות יפו בגודל, עיר כורכר ופתח ממערב מרכזי והרצליה ים יפו שוכנים ונציגויות. שוכנת מטרופולין אביב לרוב בים אביב אוכלוסייתה יפו ממזרח ערי, אביב בשטחה נוספים תל הוכרה גבעתיים והאמנות החוף היא ארציים. "
+    },
+    "solution": [
+      "function castArray(...args) { if (!args.length) { return [] } const value = args[0] return Array.isArray(value) ? value : [value] }"
+    ],
+    "img": "https://dg8krxphbh767.cloudfront.net/exercises/lasagna.svg",
+    "title": "Lucian's Luscious Lasagna",
+    "description": "Learn the basics of JavaScript cooking a brilliant lasagna from your favorite cooking book.",
+    "status": "publish",
+    "type": "tutorial",
+    "difficulty": "hard"
+  },
+  {
+    "programingLanguage": "61d808d9e1d54f8ae11b1c44",
+    "creator": "61d72ef6c5a70c65e23d3c34",
+    "labels": ["array", "object"],
+    "content": {
+      "simple": "התיכון אביב ומרכזי את הבורסה התיאטרון בערים התיכון תל על, מדרום הלאומי וחולון המוכרת תרבות חברה היא התזמורת היא רמת. אביב הלבנה תל מערכות על בת ומצפון הבנקאית יפו כתל, תקווה תל בה הגדולים המהווה בו התרבות במישור המערכת המדינה. בישראל תל בישראל איילון לניירות פורום הפילהרמונית בני בינלאומיות אביב, והשנייה אביב ישראל אביב המרכזית הים לחוף יפו דן גובלת. הירקון אדמת העיתונים בערים הדרומי של ישראל מרכז בתל ונחל, העיר בישראל הכלכלה בית תל תל אביב מבין רמת של. הוכרז שגרירויות תלאביב התקשורת השרון ערך גן העצמאות יפו בגודל, עיר כורכר ופתח ממערב מרכזי והרצליה ים יפו שוכנים ונציגויות. שוכנת מטרופולין אביב לרוב בים אביב אוכלוסייתה יפו ממזרח ערי, אביב בשטחה נוספים תל הוכרה גבעתיים והאמנות החוף היא ארציים. "
+    },
+    "solution": [
+      "function castArray(...args) { if (!args.length) { return [] } const value = args[0] return Array.isArray(value) ? value : [value] }"
+    ],
+    "img": "https://dg8krxphbh767.cloudfront.net/exercises/annalyns-infiltration.svg",
+    "title": "Annalyn's Infiltration",
+    "description": "Help Annalyn free her best friend using boolean logic in JavaScript",
+    "status": "publish",
+    "type": "tutorial",
+    "difficulty": "hard"
+  },
+  {
+    "programingLanguage": "61d808d9e1d54f8ae11b1c44",
+    "creator": "61d72ef6c5a70c65e23d3c34",
+    "labels": ["array", "object"],
+    "content": {
+      "simple": "התיכון אביב ומרכזי את הבורסה התיאטרון בערים התיכון תל על, מדרום הלאומי וחולון המוכרת תרבות חברה היא התזמורת היא רמת. אביב הלבנה תל מערכות על בת ומצפון הבנקאית יפו כתל, תקווה תל בה הגדולים המהווה בו התרבות במישור המערכת המדינה. בישראל תל בישראל איילון לניירות פורום הפילהרמונית בני בינלאומיות אביב, והשנייה אביב ישראל אביב המרכזית הים לחוף יפו דן גובלת. הירקון אדמת העיתונים בערים הדרומי של ישראל מרכז בתל ונחל, העיר בישראל הכלכלה בית תל תל אביב מבין רמת של. הוכרז שגרירויות תלאביב התקשורת השרון ערך גן העצמאות יפו בגודל, עיר כורכר ופתח ממערב מרכזי והרצליה ים יפו שוכנים ונציגויות. שוכנת מטרופולין אביב לרוב בים אביב אוכלוסייתה יפו ממזרח ערי, אביב בשטחה נוספים תל הוכרה גבעתיים והאמנות החוף היא ארציים. "
+    },
+    "solution": [
+      "function castArray(...args) { if (!args.length) { return [] } const value = args[0] return Array.isArray(value) ? value : [value] }"
+    ],
+    "img": "https://dg8krxphbh767.cloudfront.net/exercises/freelancer-rates.svg",
+    "title": "Freelancer Rates",
+    "description": "Learn about numbers whilst helping a freelancer communicate with a project manager about day- and month rates.",
+    "status": "publish",
+    "type": "tutorial",
+    "difficulty": "hard"
+  },
+  {
+    "programingLanguage": "61d808d9e1d54f8ae11b1c44",
+    "creator": "61d72ef6c5a70c65e23d3c34",
+    "labels": ["array", "object"],
+    "content": {
+      "simple": "התיכון אביב ומרכזי את הבורסה התיאטרון בערים התיכון תל על, מדרום הלאומי וחולון המוכרת תרבות חברה היא התזמורת היא רמת. אביב הלבנה תל מערכות על בת ומצפון הבנקאית יפו כתל, תקווה תל בה הגדולים המהווה בו התרבות במישור המערכת המדינה. בישראל תל בישראל איילון לניירות פורום הפילהרמונית בני בינלאומיות אביב, והשנייה אביב ישראל אביב המרכזית הים לחוף יפו דן גובלת. הירקון אדמת העיתונים בערים הדרומי של ישראל מרכז בתל ונחל, העיר בישראל הכלכלה בית תל תל אביב מבין רמת של. הוכרז שגרירויות תלאביב התקשורת השרון ערך גן העצמאות יפו בגודל, עיר כורכר ופתח ממערב מרכזי והרצליה ים יפו שוכנים ונציגויות. שוכנת מטרופולין אביב לרוב בים אביב אוכלוסייתה יפו ממזרח ערי, אביב בשטחה נוספים תל הוכרה גבעתיים והאמנות החוף היא ארציים. "
+    },
+    "solution": [
+      "function castArray(...args) { if (!args.length) { return [] } const value = args[0] return Array.isArray(value) ? value : [value] }"
+    ],
+    "img": "https://dg8krxphbh767.cloudfront.net/exercises/poetry-club-door-policy.svg",
+    "title": "Poetry Club Door Policy",
+    "description": "Learn about strings using poems to get into the poetry club.",
+    "status": "publish",
+    "type": "tutorial",
+    "difficulty": "hard"
+  },
+  {
+    "programingLanguage": "61d808d9e1d54f8ae11b1c44",
+    "creator": "61d72ef6c5a70c65e23d3c34",
+    "labels": ["array", "object"],
+    "content": {
+      "simple": "התיכון אביב ומרכזי את הבורסה התיאטרון בערים התיכון תל על, מדרום הלאומי וחולון המוכרת תרבות חברה היא התזמורת היא רמת. אביב הלבנה תל מערכות על בת ומצפון הבנקאית יפו כתל, תקווה תל בה הגדולים המהווה בו התרבות במישור המערכת המדינה. בישראל תל בישראל איילון לניירות פורום הפילהרמונית בני בינלאומיות אביב, והשנייה אביב ישראל אביב המרכזית הים לחוף יפו דן גובלת. הירקון אדמת העיתונים בערים הדרומי של ישראל מרכז בתל ונחל, העיר בישראל הכלכלה בית תל תל אביב מבין רמת של. הוכרז שגרירויות תלאביב התקשורת השרון ערך גן העצמאות יפו בגודל, עיר כורכר ופתח ממערב מרכזי והרצליה ים יפו שוכנים ונציגויות. שוכנת מטרופולין אביב לרוב בים אביב אוכלוסייתה יפו ממזרח ערי, אביב בשטחה נוספים תל הוכרה גבעתיים והאמנות החוף היא ארציים. "
+    },
+    "solution": [
+      "function castArray(...args) { if (!args.length) { return [] } const value = args[0] return Array.isArray(value) ? value : [value] }"
+    ],
+    "img": "https://dg8krxphbh767.cloudfront.net/exercises/elyses-enchantments.svg",
+    "title": "Elyses Enchantments",
+    "description": "Help Elyse with her Enchantments and learn about arrays in the process.",
+    "status": "publish",
+    "type": "tutorial",
+    "difficulty": "hard"
+  },
+  {
+    "programingLanguage": "61d808d9e1d54f8ae11b1c44",
+    "creator": "61d72ef6c5a70c65e23d3c34",
+    "labels": ["array", "object"],
+    "content": {
+      "simple": "exerciseהתיכון אביב ומרכזי את הבורסה התיאטרון בערים התיכון תל על, מדרום הלאומי וחולון המוכרת תרבות חברה היא התזמורת היא רמת. אביב הלבנה תל מערכות על בת ומצפון הבנקאית יפו כתל, תקווה תל בה הגדולים המהווה בו התרבות במישור המערכת המדינה. בישראל תל בישראל איילון לניירות פורום הפילהרמונית בני בינלאומיות אביב, והשנייה אביב ישראל אביב המרכזית הים לחוף יפו דן גובלת. הירקון אדמת העיתונים בערים הדרומי של ישראל מרכז בתל ונחל, העיר בישראל הכלכלה בית תל תל אביב מבין רמת של. הוכרז שגרירויות תלאביב התקשורת השרון ערך גן העצמאות יפו בגודל, עיר כורכר ופתח ממערב מרכזי והרצליה ים יפו שוכנים ונציגויות. שוכנת מטרופולין אביב לרוב בים אביב אוכלוסייתה יפו ממזרח ערי, אביב בשטחה נוספים תל הוכרה גבעתיים והאמנות החוף היא ארציים. "
+    },
+    "solution": [
+      "function castArray(...args) { if (!args.length) { return [] } const value = args[0] return Array.isArray(value) ? value : [value] }"
+    ],
+    "img": "https://dg8krxphbh767.cloudfront.net/exercises/vehicle-purchase.svg",
+    "title": "Vehicle Purchase",
+    "description": "Learn about comparison and conditionals while preparing for your next vehicle purchase",
+    "status": "publish",
+    "type": "tutorial",
+    "difficulty": "hard"
+  },
+  {
+    "programingLanguage": "61d808d9e1d54f8ae11b1c44",
+    "creator": "61d72ef6c5a70c65e23d3c34",
+    "labels": ["array", "object"],
+    "content": {
+      "simple": "התיכון אביב ומרכזי את הבורסה התיאטרון בערים התיכון תל על, מדרום הלאומי וחולון המוכרת תרבות חברה היא התזמורת היא רמת. אביב הלבנה תל מערכות על בת ומצפון הבנקאית יפו כתל, תקווה תל בה הגדולים המהווה בו התרבות במישור המערכת המדינה. בישראל תל בישראל איילון לניירות פורום הפילהרמונית בני בינלאומיות אביב, והשנייה אביב ישראל אביב המרכזית הים לחוף יפו דן גובלת. הירקון אדמת העיתונים בערים הדרומי של ישראל מרכז בתל ונחל, העיר בישראל הכלכלה בית תל תל אביב מבין רמת של. הוכרז שגרירויות תלאביב התקשורת השרון ערך גן העצמאות יפו בגודל, עיר כורכר ופתח ממערב מרכזי והרצליה ים יפו שוכנים ונציגויות. שוכנת מטרופולין אביב לרוב בים אביב אוכלוסייתה יפו ממזרח ערי, אביב בשטחה נוספים תל הוכרה גבעתיים והאמנות החוף היא ארציים. "
+    },
+    "solution": [
+      "function castArray(...args) { if (!args.length) { return [] } const value = args[0] return Array.isArray(value) ? value : [value] }"
+    ],
+    "img": "https://dg8krxphbh767.cloudfront.net/exercises/bird-watcher.svg",
+    "title": "Bird Watcher",
+    "description": "Professionalize counting the birds in your garden with for loops and increment/decrement operators",
+    "status": "publish",
+    "type": "tutorial",
+    "difficulty": "hard"
+  },
+  {
+    "programingLanguage": "61d808d9e1d54f8ae11b1c44",
+    "creator": "61d72ef6c5a70c65e23d3c34",
+    "labels": ["array", "object"],
+    "content": {
+      "simple": "התיכון אביב ומרכזי את הבורסה התיאטרון בערים התיכון תל על, מדרום הלאומי וחולון המוכרת תרבות חברה היא התזמורת היא רמת. אביב הלבנה תל מערכות על בת ומצפון הבנקאית יפו כתל, תקווה תל בה הגדולים המהווה בו התרבות במישור המערכת המדינה. בישראל תל בישראל איילון לניירות פורום הפילהרמונית בני בינלאומיות אביב, והשנייה אביב ישראל אביב המרכזית הים לחוף יפו דן גובלת. הירקון אדמת העיתונים בערים הדרומי של ישראל מרכז בתל ונחל, העיר בישראל הכלכלה בית תל תל אביב מבין רמת של. הוכרז שגרירויות תלאביב התקשורת השרון ערך גן העצמאות יפו בגודל, עיר כורכר ופתח ממערב מרכזי והרצליה ים יפו שוכנים ונציגויות. שוכנת מטרופולין אביב לרוב בים אביב אוכלוסייתה יפו ממזרח ערי, אביב בשטחה נוספים תל הוכרה גבעתיים והאמנות החוף היא ארציים. "
+    },
+    "solution": [
+      "function castArray(...args) { if (!args.length) { return [] } const value = args[0] return Array.isArray(value) ? value : [value] }"
+    ],
+    "img": "https://dg8krxphbh767.cloudfront.net/exercises/mixed-juices.svg",
+    "title": "Mixed Juices",
+    "description": "Help your friend Li Mei run her juice bar with your knowledge of while loops and switch statements.",
+    "status": "publish",
+    "type": "tutorial",
+    "difficulty": "hard"
+  },
+  {
+    "programingLanguage": "61d808d9e1d54f8ae11b1c44",
+    "creator": "61d72ef6c5a70c65e23d3c34",
+    "labels": ["array", "object"],
+    "content": {
+      "simple": "התיכון אביב ומרכזי את הבורסה התיאטרון בערים התיכון תל על, מדרום הלאומי וחולון המוכרת תרבות חברה היא התזמורת היא רמת. אביב הלבנה תל מערכות על בת ומצפון הבנקאית יפו כתל, תקווה תל בה הגדולים המהווה בו התרבות במישור המערכת המדינה. בישראל תל בישראל איילון לניירות פורום הפילהרמונית בני בינלאומיות אביב, והשנייה אביב ישראל אביב המרכזית הים לחוף יפו דן גובלת. הירקון אדמת העיתונים בערים הדרומי של ישראל מרכז בתל ונחל, העיר בישראל הכלכלה בית תל תל אביב מבין רמת של. הוכרז שגרירויות תלאביב התקשורת השרון ערך גן העצמאות יפו בגודל, עיר כורכר ופתח ממערב מרכזי והרצליה ים יפו שוכנים ונציגויות. שוכנת מטרופולין אביב לרוב בים אביב אוכלוסייתה יפו ממזרח ערי, אביב בשטחה נוספים תל הוכרה גבעתיים והאמנות החוף היא ארציים. "
+    },
+    "solution": [
+      "function castArray(...args) { if (!args.length) { return [] } const value = args[0] return Array.isArray(value) ? value : [value] }"
+    ],
+    "img": "https://dg8krxphbh767.cloudfront.net/exercises/lucky-numbers.svg",
+    "title": "Lucky Numbers",
+    "description": "Practice type conversion while helping your friend Kojo with his website www.fun-with-numbers.com.",
+    "status": "publish",
+    "type": "tutorial",
+    "difficulty": "hard"
+  },
+  {
+    "programingLanguage": "61d808d9e1d54f8ae11b1c44",
+    "creator": "61d72ef6c5a70c65e23d3c34",
+    "labels": ["array", "object"],
+    "content": {
+      "simple": "התיכון אביב ומרכזי את הבורסה התיאטרון בערים התיכון תל על, מדרום הלאומי וחולון המוכרת תרבות חברה היא התזמורת היא רמת. אביב הלבנה תל מערכות על בת ומצפון הבנקאית יפו כתל, תקווה תל בה הגדולים המהווה בו התרבות במישור המערכת המדינה. בישראל תל בישראל איילון לניירות פורום הפילהרמונית בני בינלאומיות אביב, והשנייה אביב ישראל אביב המרכזית הים לחוף יפו דן גובלת. הירקון אדמת העיתונים בערים הדרומי של ישראל מרכז בתל ונחל, העיר בישראל הכלכלה בית תל תל אביב מבין רמת של. הוכרז שגרירויות תלאביב התקשורת השרון ערך גן העצמאות יפו בגודל, עיר כורכר ופתח ממערב מרכזי והרצליה ים יפו שוכנים ונציגויות. שוכנת מטרופולין אביב לרוב בים אביב אוכלוסייתה יפו ממזרח ערי, אביב בשטחה נוספים תל הוכרה גבעתיים והאמנות החוף היא ארציים. "
+    },
+    "solution": [
+      "function castArray(...args) { if (!args.length) { return [] } const value = args[0] return Array.isArray(value) ? value : [value] }"
+    ],
+    "img": "https://dg8krxphbh767.cloudfront.net/exercises/elyses-analytic-enchantments.svg",
+    "title": "Elyses Analytic Enchantments",
+    "description": "Elyse's magic training continues, teaching you about useful built-in methods to analyse arrays.",
+    "status": "publish",
+    "type": "tutorial",
+    "difficulty": "hard"
+  }
+ 
+]
+
+
+###

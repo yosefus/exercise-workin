@@ -1,0 +1,32 @@
+@use '../../styles/global.scss' as *;
+
+.card {
+  @extend .flexCenter;
+  @extend .boxShadow;
+
+  justify-content: space-between;
+  background: #fff;
+  width: 400px;
+  height: 150px;
+  padding: 2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+  color: #262626;
+
+  .cardImg {
+    @extend .imgBackLittle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+    border: 1px solid #cfcfcf;
+  }
+}
+
+@media (max-width: $isMobile) {
+  .card {
+    width: 100%;
+    height: auto;
+  }
+}

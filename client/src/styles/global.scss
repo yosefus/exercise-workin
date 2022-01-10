@@ -1,0 +1,85 @@
+$color-purple: #845ec2;
+$color-darkPink: #d65db1;
+$color-Pink: #ff6f91;
+$color-darkOrange: #ff9671;
+$color-orange: #ffc75f;
+$color-yellow: #f9f871;
+$color-lightGrey: #d3d3d3;
+$color-grey: #99a4ac;
+$color-text: #262626;
+
+$color1: #fff;
+
+$isMobile: 600px;
+
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  direction: rtl;
+  font-family: 'Assistant', sans-serif;
+}
+
+.flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+  padding: 0.4rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: 'Rubik', sans-serif;
+}
+
+h1,
+h2,
+h3,
+a {
+  font-family: 'Rubik', sans-serif;
+}
+
+@mixin backImg($opa, $url) {
+  background: linear-gradient(rgba(0, 0, 0, $opa), rgba(0, 0, 0, $opa)), url($url);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.imgBackLittle {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.boxShadow {
+  box-shadow: 7px 7px 94px -24px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 7px 7px 94px -24px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 7px 7px 94px -24px rgba(0, 0, 0, 0.75);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 7px 7px 94px -24px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 7px 7px 94px -24px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 7px 7px 94px -24px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02);
+  }
+}
+
+.backGrad {
+  background: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(235, 242, 255, 1) 100%);
+}

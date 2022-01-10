@@ -1,0 +1,68 @@
+@use '../../styles/global.scss' as *;
+
+.home {
+  @extend .backGrad;
+
+  .headerImg {
+    @include backImg(0.6, '../../media/pages/homeHeader.jpg');
+    background-attachment: fixed;
+    background-position: bottom;
+
+    min-height: 60vh;
+    width: 100%;
+    max-width: 100vw;
+    padding: 2rem;
+    color: #fff;
+
+    @extend .flexCenter;
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      max-width: 400px;
+      margin-bottom: 0.5rem;
+    }
+
+    .buttonsBox {
+      margin-top: 1rem;
+      @extend .flexCenter;
+      gap: 1rem;
+
+      button:nth-child(1) {
+        background-color: $color-purple;
+        border: 1px solid $color-purple;
+        font-weight: 500;
+        a {
+          color: #fff;
+        }
+
+        &:hover {
+          background-color: #fff;
+          border: 1px solid #fff;
+          a {
+            color: $color-purple;
+          }
+        }
+      }
+      button:nth-child(2) {
+        border: 1px solid #fff;
+        background: transparent;
+        font-weight: 500;
+        a {
+          color: #fff;
+        }
+
+        &:hover {
+          border: 1px solid $color-Pink;
+          background-color: $color-Pink;
+          a {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

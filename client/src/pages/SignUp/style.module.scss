@@ -1,0 +1,54 @@
+@use '../../styles/global.scss' as *;
+
+.signUp {
+  @extend .backGrad;
+  @extend .flexCenter;
+  min-height: 100vh;
+  padding: 3rem 1rem;
+
+  form {
+    @extend .boxShadow;
+    @extend .flexCenter;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1rem;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 600px;
+    min-height: 500px;
+    background: #fff;
+
+    input {
+      width: 80%;
+      border: none;
+      outline: none;
+      border-bottom: 1px solid $color-purple;
+      line-height: 2rem;
+      font-size: 1rem;
+      padding: 0 0.5rem;
+    }
+
+    .BtnBox {
+      display: flex;
+      gap: 1rem;
+
+      button {
+        transition: ease-in-out 0.2s all;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      button:nth-child(1) {
+        background: $color-purple;
+        color: #fff;
+      }
+
+      button:nth-child(2) {
+        border: 2px solid $color-darkPink;
+        background-color: #fff;
+        color: $color-darkPink;
+      }
+    }
+  }
+}

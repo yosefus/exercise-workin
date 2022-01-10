@@ -1,0 +1,106 @@
+@use '../../styles/global.scss' as *;
+
+.card {
+  @extend .flexCenter;
+  justify-content: space-between;
+  position: relative;
+  background: #fff;
+  width: 500px;
+  height: 200px;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 7px 7px 94px -24px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 7px 7px 94px -24px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 7px 7px 94px -24px rgba(0, 0, 0, 0.75);
+  transition: all ease-in-out 0.3s;
+  color: #262626;
+
+  &:hover {
+    box-shadow: 7px 7px 94px -24px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 7px 7px 94px -24px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 7px 7px 94px -24px rgba(0, 0, 0, 0.3);
+  }
+
+  .cardIcons {
+    direction: ltr;
+    text-align: left;
+
+    .difficulty {
+      color: $color-grey;
+      direction: ltr;
+      margin-top: 0.5rem;
+
+      svg {
+        margin-right: 5px;
+      }
+
+      .is {
+        color: $color-darkOrange;
+      }
+    }
+  }
+
+  .cardImg {
+    @extend .imgBackLittle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+    border: 1px solid #cfcfcf;
+  }
+
+  .cardText {
+    display: flex;
+
+    h4 {
+      color: $color-grey;
+      width: 250px;
+    }
+
+    p {
+      padding: 5px 0;
+    }
+  }
+}
+.edit {
+  display: flex;
+  position: absolute;
+  gap: 5px;
+  left: 1.5rem;
+  bottom: 1.5rem;
+
+  svg {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: $isMobile) {
+  .card {
+    width: calc(100vw - 4rem);
+    height: auto;
+
+    .cardText {
+      width: 100%;
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      h4 {
+        width: 80%;
+        word-break: break-all;
+        font-size: 0.8rem;
+      }
+    }
+
+    .cardImg {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+    }
+
+    * {
+      direction: rtl;
+      text-align: start;
+    }
+  }
+}

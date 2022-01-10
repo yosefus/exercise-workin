@@ -1,0 +1,73 @@
+@use '../../styles/global.scss' as *;
+
+.adminExercise {
+  @extend .flexCenter;
+  @extend .backGrad;
+  padding: 2rem 0;
+  min-height: 100vh;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  form {
+    background: #fff;
+    width: 800px;
+    padding: 3rem;
+    // border: 2px solid $color-purple;
+    border-radius: 20px;
+    @extend .boxShadow;
+
+    input,
+    textArea {
+      border: none;
+      border-bottom: 2px solid $color-purple;
+      width: 100%;
+      margin-top: 0.3rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      outline: none;
+      color: #262626;
+      padding: 0 0.6rem;
+    }
+
+    textArea {
+      font-size: 1.1rem;
+      padding: 0.6rem;
+      border: 2px solid $color-purple;
+    }
+
+    input {
+      height: 2.3rem;
+    }
+
+    select {
+      margin-bottom: 2rem;
+      border: none;
+      border-bottom: 2px solid $color-purple;
+      outline: none;
+      min-width: 200px;
+      line-height: 1.2rem;
+      font-size: 1rem;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      padding-top: 1rem;
+    }
+
+    button {
+      background-color: $color-purple;
+      color: #fff;
+      font-weight: 400;
+    }
+  }
+
+  @media screen and (max-width: $isMobile) {
+    form {
+      width: 100%;
+    }
+  }
+}

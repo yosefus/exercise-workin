@@ -1,0 +1,39 @@
+@use '../../styles/global.scss' as *;
+
+.adminDash {
+  display: flex;
+  @extend .backGrad;
+
+  .right {
+    background: $color-purple;
+    padding: 2rem;
+    width: 200px;
+
+    li {
+      color: #fff;
+      cursor: pointer;
+      font-size: 1.1rem;
+      padding: 0.5rem 0;
+      transition: all ease-in-out 0.2s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .show {
+    width: 100%;
+    min-height: 90vh;
+  }
+}
+
+@media (max-width: $isMobile) {
+  .adminDash {
+    flex-wrap: wrap;
+
+    .right {
+      width: 100%;
+    }
+  }
+}
