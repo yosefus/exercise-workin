@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,12 +7,23 @@ import req from '../../functions/apiReq';
 import { useState } from 'react';
 import { CostumSelect, CostumInput, CostumTextArea } from '../../components';
 import { toast } from 'react-toastify';
+import { StoreContext } from '../../hooks/Store';
 
 function AdminExercise() {
   const [CurrExercise, setCurrExercise] = useState();
   const [AllLang, setAllLang] = useState();
   const { id } = useParams();
   const navigate = useNavigate();
+
+  const store = useContext(StoreContext);
+  const isAdmin = store[0]?.user?.isAdmin;
+
+  useEffect(() => {
+    if (!isAdmin) {
+      toast.warning('אינך מאושר להיכנס לדף זה');
+      navigate('/');
+    }
+  }, [isAdmin, navigate, store]);
 
   useEffect(() => {
     const getLang = async () => {

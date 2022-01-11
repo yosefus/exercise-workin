@@ -23,15 +23,9 @@ export default function ExerciseCard({ Ex, isAdmin }) {
       <Link to={`/exercise/${Ex._id}`}>
         <div className={styles.card}>
           <div className={styles.cardText}>
-            <div
-              className={styles.cardImg}
-              style={{
-                background: `url(${Ex.img ? Ex.img : img})`,
-                backgroundPosition: 'center',
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat',
-              }}
-            />
+            <div className={styles.cardImg}>
+              <img src={Ex.img ? Ex.img : img} alt="exercise" />
+            </div>
             <div>
               <h2>{Ex.title}</h2>
               <h4>{Ex.description}</h4>

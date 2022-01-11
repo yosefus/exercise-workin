@@ -1,9 +1,10 @@
 import styles from './style.module.scss';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import req from '../../functions/apiReq';
 import filter from '../../functions/filter';
 import { ExerciseCard, LangCard } from '..';
 import FilterBox from './FilterBox';
+import { StoreContext } from '../../hooks/Store';
 
 export default function AllExercises() {
   const [AllExercises, setAllExercises] = useState([]);
@@ -11,8 +12,11 @@ export default function AllExercises() {
   const [AllLang, setAllLang] = useState([]);
   const [Filter, setFilter] = useState({ search: '', difficulty: '', type: '' });
 
+  const Store = useContext(StoreContext);
+  const [StoreState] = Store;
+
   // const isAdmin = false;
-  const isAdmin = true;
+  const isAdmin = StoreState?.user?.isAdmin || false;
 
   const filteredExercise = filter({ isAdmin, Filter, arr: AllExercises });
 
