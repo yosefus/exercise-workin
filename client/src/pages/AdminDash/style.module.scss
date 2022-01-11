@@ -4,6 +4,16 @@
   display: flex;
   @extend .backGrad;
 
+  .welcomeCom {
+    @extend .flexCenter;
+    height: 100%;
+    color: $color-text;
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
   .right {
     background: $color-purple;
     padding: 2rem;
