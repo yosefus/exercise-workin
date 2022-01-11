@@ -9,7 +9,7 @@ const task = async (req, res, fn) => {
     const result = await userFunctions[fn](req);
     res.send(result);
   } catch (error) {
-    res.send(error.message || error);
+    res.status(500).send(error.message || error);
   }
 };
 
@@ -17,6 +17,8 @@ router.delete('/:id', async (req, res) => task(req, res, 'del'));
 router.post('/login', async (req, res) => task(req, res, 'login'));
 router.post('/signup', async (req, res) => task(req, res, 'signUp'));
 router.put('/:id', async (req, res) => task(req, res, 'update'));
+
+router.post('/token', async (req, res) => task(req, res, 'tokenConnect'));
 
 router.get('/all', async (req, res) => task(req, res, 'read'));
 

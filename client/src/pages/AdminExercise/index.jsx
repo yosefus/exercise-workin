@@ -12,6 +12,7 @@ import { StoreContext } from '../../hooks/Store';
 function AdminExercise() {
   const [CurrExercise, setCurrExercise] = useState();
   const [AllLang, setAllLang] = useState();
+
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -67,10 +68,12 @@ function AdminExercise() {
     console.log(CurrExercise);
   }, [CurrExercise]);
 
-  const onChangeInput = (e) => {
+  const onChangeInput = (e, i) => {
     let newState = { ...CurrExercise };
-    if (e.target.name !== 'content') newState[e.target.name] = e.target.value;
-    if (e.target.name === 'content') newState['content']['simple'] = e.target.value;
+    const { name, value } = e.target;
+    if (name !== 'content' && name !== 'solution') newState[name] = value;
+    if (name === 'content') newState['content']['simple'] = value;
+    if (name === 'solution') !value ? newState['solution'].splice(i, 1) : (newState['solution'][i] = value); //TODO not render good
     setCurrExercise(newState);
   };
 
@@ -196,13 +199,17 @@ function AdminExercise() {
             label=" תגיות (יש להפריד את התגיות בפסיק)"
           />
 
-          <CostumTextArea
-            name="solution"
-            // onChangeFn={onChangeInput}
-            // defaultValue={CurrExercise.content.simple}
-            rows={4}
-            label="פיתרון"
-          />
+          {[...CurrExercise?.solution, ''].map((s, i) => (
+            <CostumTextArea
+              key={`s${i}`}
+              index={i}
+              name="solution"
+              defaultValue={s}
+              onChangeFn={(e) => onChangeInput(e, i)}
+              rows={4}
+              label={`פיתרון מספר ${i + 1}`}
+            />
+          ))}
 
           <button type="submit">{id === 'new' ? 'צור' : 'עדכן'}</button>
         </form>

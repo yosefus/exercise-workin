@@ -18,8 +18,19 @@ const update = async (req) => {
   const foundExercise = await readOneById(id);
   if (!foundExercise) throw `we don't find this id`;
 
-  const { status, title, description, type, difficulty, labels, programingLanguage, content } = req.body;
-  const newData = { status, title, description, type, difficulty, labels, programingLanguage, content };
+  const { status, title, description, type, difficulty, labels, programingLanguage, content, solution } =
+    req.body;
+  const newData = {
+    status,
+    title,
+    description,
+    type,
+    difficulty,
+    labels,
+    programingLanguage,
+    content,
+    solution,
+  };
 
   let filteredData = {};
   for (let prop in newData) {

@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from 'react';
+import req, { getToken } from '../../functions/apiReq';
 // import { CostumInput } from '../../components';
 import styles from './style.module.scss';
+import { toast } from 'react-toastify';
+import { useContext } from 'react';
+import { StoreContext } from './../../hooks/Store';
+import { useNavigate } from 'react-router-dom';
 
 const DataLogin = [
   { type: 'email', label: 'דואר אלקטרוני', name: 'email' },
   { type: 'password', label: 'סיסמא', name: 'password' },
 ];
-
 const DataSignUp = [{ type: 'text', label: 'שם', name: 'name' }, ...DataLogin];
 
 function SignUp() {
   const [TypeForm, setTypeForm] = useState(DataLogin);
   const [FormData, setFormData] = useState();
+
+  const [Store, setStore] = useContext(StoreContext);
+  const navigate = useNavigate();
 
   const onChangeFn = (e) => {
     const newState = { ...FormData };
@@ -31,8 +38,33 @@ function SignUp() {
 
   const ChangeLogin = () => setTypeForm(TypeForm === DataLogin ? DataSignUp : DataLogin);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!FormData.password || !FormData.email) return;
+
+    try {
+      const res = await req({
+        method: 'post',
+        data: FormData,
+        path: TypeForm === DataLogin ? '/user/login' : '/user/signup',
+      });
+
+      if (TypeForm === DataLogin) {
+        const temp = { ...Store, user: res.user };
+        setStore(temp);
+        localStorage.token = res.token;
+        getToken(res.token);
+        navigate('/');
+      } else {
+        toast.success('נרשמת בהצלחה, אנא התחבר בבקשה');
+        ChangeLogin();
+      }
+
+      console.log(res);
+    } catch (error) {
+      toast.error('ההתחברות נכשלה');
+    }
+
     e.target.reset();
   };
 
@@ -40,9 +72,18 @@ function SignUp() {
     <div className={styles.signUp}>
       <form onSubmit={handleSubmit}>
         <h1>טופס {TypeForm === DataLogin ? 'התחברות' : 'הרשמה'}</h1>
-        {TypeForm.map((d, i) => (
-          <input key={`il${i}`} required={true} name={d.name} onChange={onChangeFn} placeholder={d.label} />
-        ))}
+        {FormData &&
+          Object.keys(FormData).length === TypeForm.length &&
+          TypeForm.map((d, i) => (
+            <input
+              key={`il${i}`}
+              value={FormData[d.name]}
+              required={true}
+              name={d.name}
+              onChange={onChangeFn}
+              placeholder={d.label}
+            />
+          ))}
         <div className={styles.BtnBox}>
           <button onClick={ChangeLogin}>
             {TypeForm === DataLogin ? 'פעם ראשונה פה?' : 'נרשמתי כבר! חלאס!'}

@@ -1,6 +1,7 @@
 const express = require('express'),
   router = express.Router(),
-  exerciseFunctions = require('../BL/functions/exerciseFunctions');
+  exerciseFunctions = require('../BL/functions/exerciseFunctions'),
+  isAdmin = require('../BL/middleware/auth');
 
 const task = async (req, res, fn) => {
   console.log(fn, req.body, req.params);
@@ -18,9 +19,10 @@ const task = async (req, res, fn) => {
 router.get('/all', async (req, res) => task(req, res, 'read'));
 router.get('/bylang/:id', async (req, res) => task(req, res, 'readByLang'));
 router.get('/:id', async (req, res) => task(req, res, 'readOne'));
-router.delete('/:id', async (req, res) => task(req, res, 'del'));
-router.post('/', async (req, res) => task(req, res, 'createOne'));
-router.put('/:id', async (req, res) => task(req, res, 'update'));
+
+router.delete('/:id', [isAdmin], async (req, res) => task(req, res, 'del'));
+router.post('/', [isAdmin], async (req, res) => task(req, res, 'createOne'));
+router.put('/:id', [isAdmin], async (req, res) => task(req, res, 'update'));
 
 router.post('/all', async (req, res) => task(req, res, 'createAll'));
 

@@ -6,8 +6,8 @@ const userController = {
     return result;
   },
 
-  readOneById: async (id) => {
-    const result = await userModel.findById(id);
+  readOneById: async (id, proj) => {
+    const result = await userModel.findById(id, proj);
     if (result.isDeleted) throw 'deleted';
     return result;
   },
