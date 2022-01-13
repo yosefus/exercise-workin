@@ -7,6 +7,7 @@ import LayOut from './LayOut';
 // error msgs
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 import Store from './hooks/Store';
 
 function App() {

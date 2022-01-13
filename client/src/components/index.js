@@ -5,3 +5,4 @@ export { default as CostumSelect } from './CostumSelect';
 export { default as CostumInput } from './CostumInput';
 export { default as CostumTextArea } from './CostumTextArea';
 export { default as StatisticMain } from './StatisticMain';
+export { default as UsersAdmin } from './UsersAdmin';

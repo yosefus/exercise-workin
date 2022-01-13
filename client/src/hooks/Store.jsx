@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import req, { getToken } from '../functions/apiReq';
+import { toast } from 'react-toastify';
 
 export const StoreContext = createContext();
 
@@ -12,10 +13,20 @@ export default function Store({ children }) {
 
     if (token && !store?.user) {
       getToken(token);
-      req({ path: '/user/token', method: 'post' }).then(({ user }) => {
-        let temp = { ...store, user };
-        setStore(temp);
-      });
+      req({ path: '/user/token', method: 'post' })
+        .then(({ user }) => {
+          let temp = { ...store, user };
+          setStore(temp);
+        })
+        .catch((err) => {
+          console.log(err);
+          if (localStorage.token) localStorage.removeItem('token');
+          if (sessionStorage.token) sessionStorage.removeItem('token');
+          toast.info('התנתקת אנא התחבר שוב');
+          let temp = { ...store };
+          delete temp.user;
+          setStore(temp);
+        });
     }
   }, [store, setStore]);
 

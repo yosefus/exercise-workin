@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import req, { getToken } from '../../functions/apiReq';
-// import { CostumInput } from '../../components';
+import { StoreContext } from './../../hooks/Store';
+
 import styles from './style.module.scss';
 import { toast } from 'react-toastify';
-import { useContext } from 'react';
-import { StoreContext } from './../../hooks/Store';
-import { useNavigate } from 'react-router-dom';
 
 const DataLogin = [
   { type: 'email', label: 'דואר אלקטרוני', name: 'email' },
@@ -18,6 +18,7 @@ function SignUp() {
   const [FormData, setFormData] = useState();
 
   const [Store, setStore] = useContext(StoreContext);
+
   const navigate = useNavigate();
 
   const onChangeFn = (e) => {
@@ -32,9 +33,9 @@ function SignUp() {
     setFormData(obj);
   }, [TypeForm]);
 
-  useEffect(() => {
-    console.log(FormData);
-  }, [FormData]);
+  // useEffect(() => {
+  //   console.log(FormData);
+  // }, [FormData]);
 
   const ChangeLogin = () => setTypeForm(TypeForm === DataLogin ? DataSignUp : DataLogin);
 
@@ -59,8 +60,6 @@ function SignUp() {
         toast.success('נרשמת בהצלחה, אנא התחבר בבקשה');
         ChangeLogin();
       }
-
-      console.log(res);
     } catch (error) {
       toast.error('ההתחברות נכשלה');
     }
@@ -80,6 +79,7 @@ function SignUp() {
               value={FormData[d.name]}
               required={true}
               name={d.name}
+              type={d.type}
               onChange={onChangeFn}
               placeholder={d.label}
             />

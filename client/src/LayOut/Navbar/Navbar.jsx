@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { StoreContext } from '../../hooks/Store';
 import styles from './style.module.scss';
+import { CgLogOut } from 'react-icons/cg';
 
 export default function Navbar() {
   const store = useContext(StoreContext);
@@ -26,7 +27,10 @@ export default function Navbar() {
           {!storeState?.user ? (
             <NavLink to={'/signUp'}>התחברות</NavLink>
           ) : (
-            <button onClick={logout}>התנתק</button>
+            <button className={styles.logout} onClick={logout}>
+              התנתק
+              <CgLogOut />
+            </button>
           )}
         </li>
       </ul>

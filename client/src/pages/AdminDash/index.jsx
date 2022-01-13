@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { AllExercises, StatisticMain } from '../../components';
+import { AllExercises, StatisticMain, UsersAdmin } from '../../components';
 import styles from './style.module.scss';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
@@ -21,6 +21,7 @@ function AdminDash() {
     ),
     exercise: <AllExercises />,
     stat: <StatisticMain />,
+    users: <UsersAdmin />,
   };
 
   useEffect(() => {
@@ -36,7 +37,7 @@ function AdminDash() {
         <ul>
           <li onClick={() => setShow('exercise')}>כל התרגילים</li>
           <li onClick={() => setShow('stat')}>סטטיסטיקות</li>
-          <li onClick={() => setShow()}>משתמשים</li>
+          <li onClick={() => setShow('users')}>משתמשים</li>
         </ul>
       </div>
       <div className={styles.show}>{ShowByClick[Show]}</div>

@@ -1,17 +1,10 @@
 import { Link } from 'react-router-dom';
 import styles from './style.module.scss';
 import { GiWeightLiftingUp } from 'react-icons/gi';
-import { SiJavascript } from 'react-icons/si';
-import { AiFillHtml5 } from 'react-icons/ai';
 import { FiEdit2 } from 'react-icons/fi';
 import img from '../../media/pages/kid.png';
 
 export default function ExerciseCard({ Ex, isAdmin }) {
-  const IconList = {
-    js: <SiJavascript />,
-    html: <AiFillHtml5 />,
-  };
-
   const TypeList = {
     short: ' תרגיל קצר',
     rolling: 'תרגיל מתגלגל',
@@ -33,8 +26,6 @@ export default function ExerciseCard({ Ex, isAdmin }) {
             </div>
           </div>
           <div className={styles.cardIcons}>
-            <h2>{IconList[Ex.programingLanguage.langName]}</h2>
-
             <div className={styles.difficulty}>
               <GiWeightLiftingUp className={styles.is} />
               <GiWeightLiftingUp className={Ex.difficulty !== 'easy' ? styles.is : undefined} />

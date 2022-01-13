@@ -12,19 +12,16 @@ export default function AllExercises() {
   const [AllLang, setAllLang] = useState([]);
   const [Filter, setFilter] = useState({ search: '', difficulty: '', type: '' });
 
-  const Store = useContext(StoreContext);
-  const [StoreState] = Store;
-
-  // const isAdmin = false;
-  const isAdmin = StoreState?.user?.isAdmin || false;
-
-  const filteredExercise = filter({ isAdmin, Filter, arr: AllExercises });
-
   const onChangeFilter = (e) => {
     let newFilter = { ...Filter };
     newFilter[e.target.name] = e.target.value;
     setFilter(newFilter);
   };
+
+  const Store = useContext(StoreContext);
+  const [StoreState] = Store;
+  const isAdmin = StoreState?.user?.isAdmin || false;
+  const filteredExercise = filter({ isAdmin, Filter, arr: AllExercises });
 
   const getLang = async () => {
     const res = await req({ path: '/lang/all', method: 'get' });
