@@ -42,7 +42,7 @@ const tokenConnect = async (req) => {
 
   const foundUser = await readOneByFilter({ _id }, '+token');
 
-  if (Token !== foundUser.token || foundUser.auth !== 'admin' || Date.now() >= exp * 1000) throw 'not auth';
+  if (Token !== foundUser.token || Date.now() >= exp * 1000) throw 'not auth';
 
   const { name, img, auth } = foundUser;
 

@@ -13,7 +13,9 @@ import { toast } from 'react-toastify';
 //   return Promise.reject(error);
 // });
 
-const ApiUrl = 'http://localhost:3200/api';
+// const ApiUrl = 'http://localhost:3200/api';
+
+const ApiUrl = '/api';
 
 export default async function req({ method, path, data }) {
   console.log(method, path, data);
