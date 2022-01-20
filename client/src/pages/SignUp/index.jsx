@@ -54,6 +54,7 @@ function SignUp() {
         const temp = { ...Store, user: res.user };
         setStore(temp);
         localStorage.token = res.token;
+        localStorage.user = JSON.stringify(res.user);
         getToken(res.token);
         navigate('/');
       } else {

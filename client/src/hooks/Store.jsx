@@ -1,11 +1,15 @@
 import React, { createContext, useEffect, useState } from 'react';
 import req, { getToken } from '../functions/apiReq';
 import { toast } from 'react-toastify';
+import { cleanLocalStorage } from '../functions/sign';
 
 export const StoreContext = createContext();
 
 export default function Store({ children }) {
-  const StoreState = useState({ theme: 'light' });
+  const StoreState = useState({
+    theme: 'light',
+    user: localStorage?.user ? JSON.parse(localStorage?.user) : undefined,
+  });
   const [store, setStore] = StoreState;
 
   useEffect(() => {
@@ -15,13 +19,13 @@ export default function Store({ children }) {
       getToken(token);
       req({ path: '/user/token', method: 'post' })
         .then(({ user }) => {
-          let temp = { ...store, user };
-          setStore(temp);
+          console.log('log in succses');
+          // let temp = { ...store, user };
+          // setStore(temp);
         })
         .catch((err) => {
           console.log(err);
-          if (localStorage.token) localStorage.removeItem('token');
-          if (sessionStorage.token) sessionStorage.removeItem('token');
+          cleanLocalStorage();
           toast.info('התנתקת אנא התחבר שוב');
           let temp = { ...store };
           delete temp.user;
@@ -31,7 +35,7 @@ export default function Store({ children }) {
   }, [store, setStore]);
 
   useEffect(() => {
-    console.log(store[0]);
+    console.log('store', store[0]);
   }, [store]);
 
   return <StoreContext.Provider value={StoreState}>{children}</StoreContext.Provider>;

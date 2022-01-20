@@ -3,17 +3,15 @@ import { NavLink } from 'react-router-dom';
 import { StoreContext } from '../../hooks/Store';
 import styles from './style.module.scss';
 import { CgLogOut } from 'react-icons/cg';
+import { cleanLocalStorage } from '../../functions/sign';
 
 export default function Navbar() {
   const store = useContext(StoreContext);
   const [storeState, setStoreState] = store;
 
   const logout = () => {
-    localStorage.token && localStorage.removeItem('token');
-    sessionStorage.token && sessionStorage.removeItem('token');
-    let tempState = { ...storeState };
-    delete tempState.user;
-    setStoreState(tempState);
+    cleanLocalStorage();
+    setStoreState({ ...storeState, user: undefined });
   };
 
   return (
